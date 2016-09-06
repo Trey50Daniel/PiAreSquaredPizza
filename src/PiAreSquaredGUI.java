@@ -24,6 +24,10 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     public Pizza getPizza() {
         return myPizza;
     }
+    
+    public Cart getCart() {
+        return userCart;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -18,6 +18,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     public PiAreSquaredGUI() {
         initComponents();
         userCart = new Cart();
+        myPizza = new Pizza();
     }
     
     public Pizza getPizza() {
@@ -496,8 +497,10 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Beverage bev = new Beverage();
-        //userCart.addToCart(bev);
+        //Beverage bev = new Beverage(jComboBox8.getSelectedItem(), jComboBox9.getSelectedItem());
+        //for(int i = 0; i < Integer.parseInt(jTextField4.getText()); i++) {
+            //userCart.addToCart(bev);
+        //}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -517,12 +520,16 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //Extra ex = new Extra();
-        //userCart.addToCart(ex);
+        //for(int i = 0; i < Integer.parseInt(jTextField1.getText()); i++) {
+            //userCart.addToCart(ex);
+        //}
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         Pizza tempPizza = getPizza();
-        //tempPizza.addTopping(jComboBox12.getSelectedItem()); 
+        //tempPizza.addTopping(jComboBox12.getSelectedItem());
+        //tempPizza.addTopping(jComboBox13.getSelectedItem());
+        myPizza = tempPizza;
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -559,7 +566,9 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PiAreSquaredGUI().setVisible(true);
+                PiAreSquaredGUI myGUI = new PiAreSquaredGUI();
+                myGUI.setVisible(true);
+                myGUI.setTitle("Pi Are Squared Pizza");
             }
         });
     }

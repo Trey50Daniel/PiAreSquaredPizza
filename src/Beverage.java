@@ -12,17 +12,31 @@ import java.util.ArrayList;
  * @author tagg8
  */
 public class Beverage {
+    Cart myCart = new Cart();
     public enum size {SMALL, MEDIUM, LARGE, XLARGE};
+    public enum drinkTypes {COKE, PEPSI, SPRIT, DRPEPPER};
     private double drinkPrice = 0;
     private size mySize;
-    ArrayList<Beverage> beverages = new ArrayList<Beverage>();
+    private drinkTypes myDrinkTypes;
     
-    public void addBeverage(Beverage beverage){
-            beverages.add(beverage);
-    }
-    Beverage(size bevSize){
-             bevSize = mySize;
-             if(mySize == size.LARGE){
+    public Beverage(String bevSize, String drink){
+           //  bevSize = mySize;
+            switch (bevSize){
+                case "LARGE":
+                    mySize = size.LARGE;
+                    break;
+                case "MEDIUM":
+                    mySize = size.MEDIUM;
+                    break;
+                case "":
+            
+            
+            }
+           
+           
+           
+           
+           if(mySize == size.LARGE){
                 drinkPrice += drinkPrice * 2.50;
             }
             else if(mySize == size.MEDIUM){

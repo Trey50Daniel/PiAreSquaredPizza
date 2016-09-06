@@ -12,37 +12,25 @@ import java.util.ArrayList;
  * @author tagg8
  */
 public class Pizza {
-    public enum ClassicTypes {ComboClassic, VeggieLover, MeatLover, SouthWestern, Hawaiian, ChickenAlfredo };
-    public enum CrustType{CHEESESTUFF, THIN, NORMAL};
+    public enum ClassicTypes {PEPPERONI, SAUSAGE, CHEESE, MUSHROOM };
+    public enum SpecialtyTypes {ComboClassic, VeggieLover, MeatLover, SouthWestern, Hawaiian, ChickenAlfredo};
+    public enum CrustType {CHEESESTUFF, THIN, NORMAL};
+    public enum Toppings {PEPPERONI, CHEESE, SAUSAGE, MUSHROOM, ANCHOVIES, ONION, PEPPER, BEEF, BBQ };
+    private boolean isCustom;
     private double pizzaPrice = 0;
     private double CrustPrice = 0;
-    private ClassicTypes myClassicTypes;
-    private CrustType myCrustSize;
-    ArrayList<Pizza> ClassicPizzas = new ArrayList<Pizza>();
     
 
     public Pizza() {
+        isCustom = false;
+    }
+    
+    public Pizza(String pizza, String crust){
         
     }
     
-    public Pizza(ClassicTypes pizza, CrustType crust){
-                pizza = myClassicTypes;
-                if(myCrustSize == CrustType.CHEESESTUFF){
-                    CrustPrice = 1.00;
-                }
-                else if(myCrustSize == CrustType.THIN){
-
-                    CrustPrice = 00.50;
-                }
-                else{
-                    CrustPrice = 00.25;
-                
-                }
-                if(myClassicTypes == ClassicTypes.ComboClassic){
-                   
-                }
-    
-    
+    public void addTopping() {
+        
     }
 }
 

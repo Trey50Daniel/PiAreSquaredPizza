@@ -16,6 +16,7 @@ public class Pizza {
     public enum CrustSize{CHEESESTUFF, THIN, NORMAL};
     private double pizzaPrice = 0;
     private double CrustPrice = 0;
+    public boolean custom;
     private ClassicTypes myClassicTypes;
     private CrustSize myCrustSize;
     ArrayList<ClassicPizza> ClassicPizzas = new ArrayList<ClassicPizza>();

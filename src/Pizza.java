@@ -13,22 +13,25 @@ import java.util.ArrayList;
  */
 public class Pizza {
     public enum ClassicTypes {ComboClassic, VeggieLover, MeatLover, SouthWestern, Hawaiian, ChickenAlfredo };
-    public enum CrustSize{CHEESESTUFF, THIN, NORMAL};
+    public enum CrustType{CHEESESTUFF, THIN, NORMAL};
     private double pizzaPrice = 0;
     private double CrustPrice = 0;
-    public boolean custom;
     private ClassicTypes myClassicTypes;
-    private CrustSize myCrustSize;
-    ArrayList<ClassicPizza> ClassicPizzas = new ArrayList<ClassicPizza>();
-  //  public void 
+    private CrustType myCrustSize;
+    ArrayList<Pizza> ClassicPizzas = new ArrayList<Pizza>();
     
+
+    public Pizza() {
+        
+    }
     
-    public Pizza(ClassicTypes pizza, CrustSize crust){
+    public Pizza(ClassicTypes pizza, CrustType crust){
                 pizza = myClassicTypes;
-                if(myCrustSize == CrustSize.CHEESESTUFF){
+                if(myCrustSize == CrustType.CHEESESTUFF){
                     CrustPrice = 1.00;
                 }
-                else if(myCrustSize == CrustSize.THIN){
+                else if(myCrustSize == CrustType.THIN){
+
                     CrustPrice = 00.50;
                 }
                 else{

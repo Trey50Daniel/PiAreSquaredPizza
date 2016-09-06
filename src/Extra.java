@@ -9,5 +9,6 @@
  * @author tagg8
  */
 public class Extra {
+    public enum Toppings {CHEESE, PEPPORONI , ONIONS, APPLES, PINEAPPLES };
     
 }

@@ -12,12 +12,11 @@ import java.util.ArrayList;
  * @author tagg8
  */
 public class Beverage {
-    Cart myCart = new Cart();
     public enum size {SMALL, MEDIUM, LARGE, XLARGE};
     public enum drinkTypes {COKE, PEPSI, SPRIT, DRPEPPER};
     private double drinkPrice = 0;
     private size mySize;
-    private drinkTypes myDrinkTypes;
+    private drinkTypes myDrinkType;
     
     public Beverage(String bevSize, String drink){
            //  bevSize = mySize;
@@ -29,27 +28,26 @@ public class Beverage {
                     mySize = size.MEDIUM;
                     break;
                 case "":
-            
-            
             }
-           
-           
-           
-           
-           if(mySize == size.LARGE){
-                drinkPrice += drinkPrice * 2.50;
-            }
-            else if(mySize == size.MEDIUM){
-                drinkPrice += drinkPrice * 2.25;
-            }
-            else{
-                drinkPrice += drinkPrice * 2.10;
-            }
+    }
+    
+    public void setBevSize(String bevSize) {
+        switch (bevSize){
+            case "XLARGE":
+                mySize = size.XLARGE;
+                break;
+            case "LARGE":
+                mySize = size.LARGE;
+                break;
+            case "MEDIUM":
+                mySize = size.MEDIUM;
+                break;
+            case "SMALL":
+                mySize = size.SMALL;
+                break;
+        }
     }
     public double getPrice(){
         return drinkPrice;   
-   }
-   ArrayList<Beverage>getBeverages(){
-       return beverages;
    }
 }

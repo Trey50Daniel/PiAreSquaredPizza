@@ -30,10 +30,13 @@ public final class Pizza {
     }
     
     public Pizza(String pizza, String pizzaSize, String crust){
+        String pie = "";
         switch (pizza){
+                
                 case "PEPPERONI":
                      myClassicTypes = ClassicTypes.PEPPERONI;
-                     getPizza(pizza);
+                     pie += "PEPPERONI";
+                     getPizza(pie);
                     break;
                 case "SAUSAGE":
                     myClassicTypes = ClassicTypes.SAUSAGE;
@@ -79,6 +82,11 @@ public final class Pizza {
     }
     public String getPizza(String pizza){
        return pizza;
+    }
+    public double getPrice(){
+         pizzaPrice += CrustPrice ;
+      
+     return pizzaPrice;
     }
 }
 

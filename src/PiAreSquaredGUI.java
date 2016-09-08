@@ -517,6 +517,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
         double myCost = userCart.getCost();
         String stringCost = Double.toString(myCost);
         jTextField6.setText(stringCost);
+        JOptionPane.showMessageDialog(this, "Added to Cart!");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -533,17 +534,21 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
         double myCost = userCart.getCost();
         String stringCost = Double.toString(myCost);
         jTextField6.setText(stringCost);
+        JOptionPane.showMessageDialog(this, "Added to Cart!");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        myPizza.setPizza("CUSTOM");
         myPizza.setSize(jComboBox11.getSelectedItem().toString());
         myPizza.setCrust(jComboBox10.getSelectedItem().toString());
         myPizza.addTopping(jComboBox12.getSelectedItem().toString());
         myPizza.addTopping(jComboBox13.getSelectedItem().toString());
         myPizza.calculatePrice();
         userCart.addToCart(myPizza);
+        double myCost = userCart.getCost();
+        String stringCost = Double.toString(myCost);
+        jTextField6.setText(stringCost);
         myPizza = new Pizza();
+        JOptionPane.showMessageDialog(this, "Added to Cart!");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

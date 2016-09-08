@@ -39,7 +39,7 @@ public final class Pizza {
     
 
     public Pizza() {
-        
+        myPizzaType = PizzaType.NONE;
     }
     
     
@@ -104,45 +104,47 @@ public final class Pizza {
     }
     
     public void addTopping(String toppingName) {
-        if(myPizzaType == PizzaType.CUSTOM) {
-            switch(toppingName) {
-                case "Pepperoni":
-                    myToppings.add(Toppings.PEPPERONI);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "Sausage":
-                    myToppings.add(Toppings.SAUSAGE);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "BBQ":
-                    myToppings.add(Toppings.BBQ);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "Cheese":
-                    myToppings.add(Toppings.CHEESE);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "Mushroom":
-                    myToppings.add(Toppings.MUSHROOM);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "Anchovies":
-                    myToppings.add(Toppings.ANCHOVIES);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "Onion":
-                    myToppings.add(Toppings.ONION);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "Pepper":
-                    myToppings.add(Toppings.PEPPER);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-                case "Beef":
-                    myToppings.add(Toppings.BEEF);
-                    myPizzaType = PizzaType.CUSTOM;
-                    break;
-            }
+        Toppings tempTopping = Toppings.NONE;
+        switch(toppingName) {
+            case " Pepperoni":
+               tempTopping = Toppings.PEPPERONI;
+               myToppings.add(tempTopping);
+               myPizzaType = PizzaType.CUSTOM;
+               break;
+            case " Sausage":
+               tempTopping = Toppings.SAUSAGE;
+               myToppings.add(tempTopping);
+               myPizzaType = PizzaType.CUSTOM;
+               break;
+            case " BBQ":
+                tempTopping = Toppings.BBQ;
+                myToppings.add(tempTopping);
+                myPizzaType = PizzaType.CUSTOM;
+                break;
+            case " Cheese":
+                myToppings.add(Toppings.CHEESE);
+                myPizzaType = PizzaType.CUSTOM;
+                break;
+            case " Mushroom":
+                myToppings.add(Toppings.MUSHROOM);
+                myPizzaType = PizzaType.CUSTOM;
+                break;
+            case " Anchovies":
+                myToppings.add(Toppings.ANCHOVIES);
+                myPizzaType = PizzaType.CUSTOM;
+                break;
+            case " Onion":
+                myToppings.add(Toppings.ONION);
+                myPizzaType = PizzaType.CUSTOM;
+                break;
+            case " Pepper":
+                myToppings.add(Toppings.PEPPER);
+                myPizzaType = PizzaType.CUSTOM;
+                break;
+            case " Beef":
+                myToppings.add(Toppings.BEEF);
+                myPizzaType = PizzaType.CUSTOM;
+                break;
         }
     }
     

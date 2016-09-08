@@ -501,6 +501,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
         double myCost = userCart.getCost();
         String stringCost = Double.toString(myCost);
         jTextField6.setText(stringCost);
+        JOptionPane.showMessageDialog(this, "Added to Cart!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -12,13 +12,16 @@ import java.util.ArrayList;
  * @author tagg8
  */
 public final class Pizza {
+    public enum PizzaType {CLASSIC, SPECIALTY, CUSTOM, NONE};
     public enum ClassicTypes {PEPPERONI, SAUSAGE, CHEESE, MUSHROOM, NONE };
-    private ClassicTypes myClassicTypes;
+    public PizzaType myPizzaType;
+    private ClassicTypes myClassicType;
     public enum SpecialtyTypes {COMBOCLASSIC, VEGGIELOVER, MEATLOVER, SOUTHWESTERN, HAWAIIAN, CHICKENALFREDO, NONE};
     private SpecialtyTypes mySpecialty;
     public enum CrustType {CHEESESTUFF, THIN, NORMAL};
     public enum pizzaSize {SMALL, MEDIUM, LARGE, XLARGE, NONE};
-    public enum Toppings {PEPPERONI, CHEESE, SAUSAGE, MUSHROOM, ANCHOVIES, ONION, PEPPER, BEEF, BBQ };
+    public enum Toppings {PEPPERONI, CHEESE, SAUSAGE, MUSHROOM, ANCHOVIES, ONION, PEPPER, BEEF, BBQ, NONE };
+    private ArrayList<Toppings> myToppings;
     private boolean isCustom;
     
     private double pizzaPrice = 0;
@@ -26,67 +29,119 @@ public final class Pizza {
     
 
     public Pizza() {
-        isCustom = false;
+        
     }
     
-    public Pizza(String pizza, String pizzaSize, String crust){
-        String pie = "";
-        switch (pizza){
-                
+    
+    public void setPizza(String pizzaName) {
+        switch (pizzaName){
                 case "PEPPERONI":
-                     myClassicTypes = ClassicTypes.PEPPERONI;
-                     pie += "PEPPERONI";
-                     getPizza(pie);
+                    myPizzaType = PizzaType.CLASSIC;
+                    myClassicType = ClassicTypes.PEPPERONI;
+                    mySpecialty = SpecialtyTypes.NONE;
+                    isCustom = false;
                     break;
                 case "SAUSAGE":
-                    myClassicTypes = ClassicTypes.SAUSAGE;
+                    myPizzaType = PizzaType.CLASSIC;
+                    myClassicType = ClassicTypes.SAUSAGE;
+                    mySpecialty = SpecialtyTypes.NONE;
+                    isCustom = false;
                     break;
                 case "CHEESE":
-                    myClassicTypes = ClassicTypes.CHEESE;
+                    myPizzaType = PizzaType.CLASSIC;
+                    myClassicType = ClassicTypes.CHEESE;
+                    mySpecialty = SpecialtyTypes.NONE;
+                    isCustom = false;
                     break;
                 case "MUSHROOM":
-                    myClassicTypes = ClassicTypes.MUSHROOM;
+                    myPizzaType = PizzaType.CLASSIC;
+                    myClassicType = ClassicTypes.MUSHROOM;
+                    mySpecialty = SpecialtyTypes.NONE;
+                    isCustom = false;
                    break;
                 case "COMBOCLASSIC":
-                     mySpecialty = SpecialtyTypes.COMBOCLASSIC;
-                     getPizza(pizza);
+                    myPizzaType = PizzaType.SPECIALTY;
+                    mySpecialty = SpecialtyTypes.COMBOCLASSIC;
+                    myClassicType = ClassicTypes.NONE;
+                    isCustom = false;
                     break;
                 case "VEGGIELOVER":
-                    myClassicTypes = ClassicTypes.SAUSAGE;
+                    myPizzaType = PizzaType.SPECIALTY;
+                    myClassicType = ClassicTypes.NONE;
+                    mySpecialty = SpecialtyTypes.VEGGIELOVER;
                     break;
                 case "MEATLOVER":
-                    myClassicTypes = ClassicTypes.CHEESE;
+                    myPizzaType = PizzaType.SPECIALTY;
+                    myClassicType = ClassicTypes.NONE;
+                    mySpecialty = SpecialtyTypes.MEATLOVER;
                     break;
                 case "SOUTHWESTERN":
-                    myClassicTypes = ClassicTypes.MUSHROOM;
+                    myPizzaType = PizzaType.SPECIALTY;
+                    myClassicType = ClassicTypes.NONE;
+                    mySpecialty = SpecialtyTypes.SOUTHWESTERN;
                    break;
                  case "HAWAIIAN":
-                     myClassicTypes = ClassicTypes.PEPPERONI;
-                     getPizza(pizza);
+                    myPizzaType = PizzaType.SPECIALTY;
+                    myClassicType = ClassicTypes.NONE;
+                    mySpecialty = SpecialtyTypes.HAWAIIAN;
                     break;
                 case "CHICKENALFREDO":
-                    myClassicTypes = ClassicTypes.SAUSAGE;
+                    myPizzaType = PizzaType.SPECIALTY;
+                    myClassicType = ClassicTypes.NONE;
+                    mySpecialty = SpecialtyTypes.CHICKENALFREDO;
                     break;
-                
                 default:
-                     myClassicTypes = ClassicTypes.NONE;
+                    myClassicType = ClassicTypes.NONE;
                     break;
             }
     }
-    public Pizza(String pizza, String crust){
+    
+    public void setSize(String pizzaSize) {
         
     }
     
-    public void addTopping() {
-        
+    public void addTopping(String toppingName) {
+        if(isCustom) {
+            switch(toppingName) {
+                case "Pepperoni":
+                    myToppings.add(Toppings.PEPPERONI);
+                    break;
+                case "Sausage":
+                    myToppings.add(Toppings.SAUSAGE);
+                    break;
+                case "BBQ":
+                    myToppings.add(Toppings.BBQ);
+                    break;
+                case "Cheese":
+                    myToppings.add(Toppings.CHEESE);
+                    break;
+                case "Mushroom":
+                    myToppings.add(Toppings.MUSHROOM);
+                    break;
+                case "Anchovies":
+                    myToppings.add(Toppings.ANCHOVIES);
+                    break;
+                case "Onion":
+                    myToppings.add(Toppings.ONION);
+                    break;
+                case "Pepper":
+                    myToppings.add(Toppings.PEPPER);
+                    break;
+                case "Beef":
+                    myToppings.add(Toppings.BEEF);
+                    break;
+            }
+        }
     }
-    public String getPizza(String pizza){
-       return pizza;
+    
+    public void setPrice() {
+        if(myPizzaType == PizzaType.CUSTOM) {
+            
+        }
     }
+    
     public double getPrice(){
-         pizzaPrice += CrustPrice ;
-      
-     return pizzaPrice;
+        return pizzaPrice;
     }
 }
 

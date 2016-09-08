@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -505,6 +508,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
         for(int i = 0; i < numItems; i++) {
             myPizza.setPizza(jComboBox2.getSelectedItem().toString());
             myPizza.setSize(jComboBox4.getSelectedItem().toString());
+            myPizza.setCrust(jComboBox7.getSelectedItem().toString());
             myPizza.calculatePrice();
             userCart.addToCart(myPizza);
             myPizza = new Pizza();
@@ -520,6 +524,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
         for(int i = 0; i < numItems; i++) {
             myPizza.setPizza(jComboBox3.getSelectedItem().toString());
             myPizza.setSize(jComboBox5.getSelectedItem().toString());
+            myPizza.setCrust(jComboBox6.getSelectedItem().toString());
             myPizza.calculatePrice();
             userCart.addToCart(myPizza);
             myPizza = new Pizza();
@@ -531,8 +536,14 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //Pizza piz = new Pizza();
-        //userCart.addToCart(piz);
+        myPizza.setPizza("CUSTOM");
+        myPizza.setSize(jComboBox11.getSelectedItem().toString());
+        myPizza.setCrust(jComboBox10.getSelectedItem().toString());
+        myPizza.addTopping(jComboBox12.getSelectedItem().toString());
+        myPizza.addTopping(jComboBox13.getSelectedItem().toString());
+        myPizza.calculatePrice();
+        userCart.addToCart(myPizza);
+        myPizza = new Pizza();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -543,6 +554,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        JOptionPane.showMessageDialog(this, "Toppings Added!");
         myPizza.addTopping(jComboBox12.getSelectedItem().toString());
         myPizza.addTopping(jComboBox13.getSelectedItem().toString());
         jComboBox12.setSelectedIndex(0);
@@ -550,6 +562,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        JOptionPane.showMessageDialog(this, "Thank you for shopping with Pi Are Squared Pizza!");
         userCart.clearCart();
         jTextField6.setText(Double.toString(userCart.getCost()));
     }//GEN-LAST:event_jButton6ActionPerformed

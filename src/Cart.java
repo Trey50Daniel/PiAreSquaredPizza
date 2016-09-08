@@ -34,6 +34,11 @@ public class Cart {
     
     public void addToCart(Extra ex) {
         extras.add(ex);
+        totalCost += ex.getPrice();
+    }
+    
+    public double getCost() {
+        return totalCost;
     }
     
     public void clearCart() {

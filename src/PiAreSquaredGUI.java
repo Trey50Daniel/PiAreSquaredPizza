@@ -514,7 +514,7 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
         int numItems = Integer.parseInt(jTextField3.getText());
         for(int i = 0; i < numItems; i++) {
             myPizza.setPizza(jComboBox3.getSelectedItem().toString());
-            myPizza.setSize(jComboBox4.getSelectedItem().toString());
+            myPizza.setSize(jComboBox5.getSelectedItem().toString());
             myPizza.calculatePrice();
             userCart.addToCart(myPizza);
             myPizza = new Pizza();

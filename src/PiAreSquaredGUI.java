@@ -489,10 +489,15 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Beverage bev = new Beverage(jComboBox8.getSelectedItem(), jComboBox9.getSelectedItem());
-        //for(int i = 0; i < Integer.parseInt(jTextField4.getText()); i++) {
-            //userCart.addToCart(bev);
-        //}
+        Beverage bev = new Beverage();
+        bev.setBevSize(jComboBox9.getSelectedItem().toString());
+        for(int i = 0; i < Integer.parseInt(jTextField4.getText()); i++) {
+            userCart.addToCart(bev);
+            bev = new Beverage();
+        }
+        double myCost = userCart.getCost();
+        String stringCost = Double.toString(myCost);
+        jTextField6.setText(stringCost);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

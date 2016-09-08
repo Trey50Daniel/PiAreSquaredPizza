@@ -25,6 +25,8 @@ public final class Pizza {
     private CrustType myCrust;
     private pizzaSize mySize;
     
+    private double cheeseStuffPrice = 3.00;
+    private double thinCrustPrice = 1.50;
     private double xLargePrice = 14.00;
     private double largePrice = 12.00;
     private double mediumPrice = 10.00;
@@ -161,6 +163,23 @@ public final class Pizza {
         }
     }
     
+    public void setCrust(String crustType) {
+        switch(crustType) {
+            case "CHEESESTUFF":
+                myCrust = CrustType.CHEESESTUFF;
+                break;
+            case "THIN":
+                myCrust = CrustType.THIN;
+                break;
+            case "NORMAL":
+                myCrust = CrustType.NORMAL;
+                break;
+            default:
+                myCrust = CrustType.NORMAL;
+                break;
+        }
+    }
+    
     public void calculatePrice() {
         if(myPizzaType == PizzaType.CUSTOM) {
             switch(mySize) {
@@ -175,6 +194,17 @@ public final class Pizza {
                     break;
                 case SMALL:
                     pizzaPrice += smallPrice;
+                    break;
+            }
+            switch(myCrust) {
+                case CHEESESTUFF:
+                    pizzaPrice += cheeseStuffPrice;
+                    break;
+                case THIN:
+                    pizzaPrice += thinCrustPrice;
+                    break;
+                case NORMAL:
+                    pizzaPrice += 0.0;
                     break;
             }
             for(int i = 0; i < myToppings.size(); i++) {
@@ -197,6 +227,18 @@ public final class Pizza {
                     pizzaPrice += smallPrice;
                     break;
             }
+            
+            switch(myCrust) {
+                case CHEESESTUFF:
+                    pizzaPrice += cheeseStuffPrice;
+                    break;
+                case THIN:
+                    pizzaPrice += thinCrustPrice;
+                    break;
+                case NORMAL:
+                    pizzaPrice += 0.0;
+                    break;
+            }
         }
         else {
             pizzaPrice += specialtyPrice;
@@ -212,6 +254,17 @@ public final class Pizza {
                     break;
                 case SMALL:
                     pizzaPrice += smallPrice;
+                    break;
+            }
+            switch(myCrust) {
+                case CHEESESTUFF:
+                    pizzaPrice += cheeseStuffPrice;
+                    break;
+                case THIN:
+                    pizzaPrice += thinCrustPrice;
+                    break;
+                case NORMAL:
+                    pizzaPrice += 0.0;
                     break;
             }
         }

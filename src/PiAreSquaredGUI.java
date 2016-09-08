@@ -496,13 +496,33 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Pizza piz = new Pizza();
-        //userCart.addToCart(piz);
+        int numItems = Integer.parseInt(jTextField2.getText());
+        for(int i = 0; i < numItems; i++) {
+            myPizza.setPizza(jComboBox2.getSelectedItem().toString());
+            myPizza.setSize(jComboBox4.getSelectedItem().toString());
+            myPizza.calculatePrice();
+            userCart.addToCart(myPizza);
+            myPizza = new Pizza();
+        }
+        myPizza = new Pizza();
+        double myCost = userCart.getCost();
+        String stringCost = Double.toString(myCost);
+        jTextField6.setText(stringCost);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //Pizza piz = new Pizza();
-        //userCart.addToCart(piz);
+        int numItems = Integer.parseInt(jTextField3.getText());
+        for(int i = 0; i < numItems; i++) {
+            myPizza.setPizza(jComboBox3.getSelectedItem().toString());
+            myPizza.setSize(jComboBox4.getSelectedItem().toString());
+            myPizza.calculatePrice();
+            userCart.addToCart(myPizza);
+            myPizza = new Pizza();
+        }
+        myPizza = new Pizza();
+        double myCost = userCart.getCost();
+        String stringCost = Double.toString(myCost);
+        jTextField6.setText(stringCost);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -518,14 +538,15 @@ public class PiAreSquaredGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Pizza tempPizza = getPizza();
-        //tempPizza.addTopping(jComboBox12.getSelectedItem());
-        //tempPizza.addTopping(jComboBox13.getSelectedItem());
-        myPizza = tempPizza;
+        myPizza.addTopping(jComboBox12.getSelectedItem().toString());
+        myPizza.addTopping(jComboBox13.getSelectedItem().toString());
+        jComboBox12.setSelectedIndex(0);
+        jComboBox13.setSelectedIndex(0);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        userCart.clearCart();
+        jTextField6.setText(Double.toString(userCart.getCost()));
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

@@ -22,8 +22,16 @@ public final class Pizza {
     public enum pizzaSize {SMALL, MEDIUM, LARGE, XLARGE, NONE};
     public enum Toppings {PEPPERONI, CHEESE, SAUSAGE, MUSHROOM, ANCHOVIES, ONION, PEPPER, BEEF, BBQ, NONE };
     private ArrayList<Toppings> myToppings;
-    private boolean isCustom;
+    private CrustType myCrust;
+    private pizzaSize mySize;
     
+    private double xLargePrice = 14.00;
+    private double largePrice = 12.00;
+    private double mediumPrice = 10.00;
+    private double smallPrice = 8.00;
+    private double specialtyPrice = 3.75;
+    private double classicPrice = 2.75;
+    private double toppingPrice = 1.50;
     private double pizzaPrice = 0;
     private double CrustPrice = 0;
     
@@ -39,31 +47,26 @@ public final class Pizza {
                     myPizzaType = PizzaType.CLASSIC;
                     myClassicType = ClassicTypes.PEPPERONI;
                     mySpecialty = SpecialtyTypes.NONE;
-                    isCustom = false;
                     break;
                 case "SAUSAGE":
                     myPizzaType = PizzaType.CLASSIC;
                     myClassicType = ClassicTypes.SAUSAGE;
                     mySpecialty = SpecialtyTypes.NONE;
-                    isCustom = false;
                     break;
                 case "CHEESE":
                     myPizzaType = PizzaType.CLASSIC;
                     myClassicType = ClassicTypes.CHEESE;
                     mySpecialty = SpecialtyTypes.NONE;
-                    isCustom = false;
                     break;
                 case "MUSHROOM":
-                    myPizzaType = PizzaType.CLASSIC;
-                    myClassicType = ClassicTypes.MUSHROOM;
-                    mySpecialty = SpecialtyTypes.NONE;
-                    isCustom = false;
+                   myPizzaType = PizzaType.CLASSIC;
+                   myClassicType = ClassicTypes.MUSHROOM;
+                   mySpecialty = SpecialtyTypes.NONE;
                    break;
                 case "COMBOCLASSIC":
                     myPizzaType = PizzaType.SPECIALTY;
                     mySpecialty = SpecialtyTypes.COMBOCLASSIC;
                     myClassicType = ClassicTypes.NONE;
-                    isCustom = false;
                     break;
                 case "VEGGIELOVER":
                     myPizzaType = PizzaType.SPECIALTY;
@@ -92,51 +95,125 @@ public final class Pizza {
                     break;
                 default:
                     myClassicType = ClassicTypes.NONE;
+                    mySpecialty = SpecialtyTypes.NONE;
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
             }
     }
     
-    public void setSize(String pizzaSize) {
-        
-    }
-    
     public void addTopping(String toppingName) {
-        if(isCustom) {
+        if(myPizzaType == PizzaType.CUSTOM) {
             switch(toppingName) {
                 case "Pepperoni":
                     myToppings.add(Toppings.PEPPERONI);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "Sausage":
                     myToppings.add(Toppings.SAUSAGE);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "BBQ":
                     myToppings.add(Toppings.BBQ);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "Cheese":
                     myToppings.add(Toppings.CHEESE);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "Mushroom":
                     myToppings.add(Toppings.MUSHROOM);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "Anchovies":
                     myToppings.add(Toppings.ANCHOVIES);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "Onion":
                     myToppings.add(Toppings.ONION);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "Pepper":
                     myToppings.add(Toppings.PEPPER);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
                 case "Beef":
                     myToppings.add(Toppings.BEEF);
+                    myPizzaType = PizzaType.CUSTOM;
                     break;
             }
         }
     }
     
-    public void setPrice() {
+    public void setSize(String size) {
+        switch (size){
+            case "XLARGE":
+                mySize = pizzaSize.XLARGE;
+                break;
+            case "LARGE":
+                mySize = pizzaSize.LARGE;
+                break;
+            case "MEDIUM":
+                mySize = pizzaSize.MEDIUM;
+                break;
+            case "SMALL":
+                mySize = pizzaSize.SMALL;
+                break;
+        }
+    }
+    
+    public void calculatePrice() {
         if(myPizzaType == PizzaType.CUSTOM) {
-            
+            switch(mySize) {
+                case XLARGE:
+                    pizzaPrice += xLargePrice;
+                    break;
+                case LARGE:
+                    pizzaPrice += largePrice;
+                    break;
+                case MEDIUM:
+                    pizzaPrice += mediumPrice;
+                    break;
+                case SMALL:
+                    pizzaPrice += smallPrice;
+                    break;
+            }
+            for(int i = 0; i < myToppings.size(); i++) {
+                pizzaPrice += toppingPrice;
+            }
+        }
+        else if(myPizzaType == PizzaType.CLASSIC) {
+            pizzaPrice += classicPrice;
+            switch(mySize) {
+                case XLARGE:
+                    pizzaPrice += xLargePrice;
+                    break;
+                case LARGE:
+                    pizzaPrice += largePrice;
+                    break;
+                case MEDIUM:
+                    pizzaPrice += mediumPrice;
+                    break;
+                case SMALL:
+                    pizzaPrice += smallPrice;
+                    break;
+            }
+        }
+        else {
+            pizzaPrice += specialtyPrice;
+            switch(mySize) {
+                case XLARGE:
+                    pizzaPrice += xLargePrice;
+                    break;
+                case LARGE:
+                    pizzaPrice += largePrice;
+                    break;
+                case MEDIUM:
+                    pizzaPrice += mediumPrice;
+                    break;
+                case SMALL:
+                    pizzaPrice += smallPrice;
+                    break;
+            }
         }
     }
     

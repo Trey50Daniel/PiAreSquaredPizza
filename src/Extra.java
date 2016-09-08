@@ -9,6 +9,9 @@
  * @author tagg8
  */
 public class Extra {
-    public enum Toppings {CHEESE, PEPPORONI , ONIONS, APPLES, PINEAPPLES };
-    
+    private double extraPrice = 0.35;
+    //public enum Toppings {CHEESE, PEPPORONI , ONIONS, APPLES, PINEAPPLES };
+    public double getPrice() {
+        return extraPrice;
+    }
 }
